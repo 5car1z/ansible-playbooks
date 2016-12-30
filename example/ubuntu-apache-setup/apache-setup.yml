@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   vars:
-    doc_root: /var/www/example
+    doc_root: /var/www/html
   tasks:
     - name: Update the Apt package manager database. 
       apt: update_cache=yes
