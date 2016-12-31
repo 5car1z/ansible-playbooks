@@ -17,7 +17,7 @@
       copy: src=index.html dest={{ doc_root }}/index.html owner=www-data group=www-data mode=755
 
     - name: Create the default Apache virtual host file from template. 
-      template: src=vhost.tpl dest=/etc/apache2/sites-available/000-default.conf
+      template: src=vhost.tpl dest=/etc/apache2/sites-available/000-default.conf owner=root group=root
       notify: restart apache
 
  handlers:
