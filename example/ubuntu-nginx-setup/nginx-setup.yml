@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: true
+  vars:
+    doc_root: /usr/share/nginx/html
+  tasks:
+    - name: Update the Apt package manager database. 
+      apt: update_cache=yes
+
+    - name: Install Nginx via Apt. 
+      apt: name=nginx state=latest
+
+    - name: Create a custom root web directory, with correct group ownership.
+      file: path={{ doc_root }} state=directory owner=www-data group=www-data
+
+    - name: Create the index.html test file, with correct group ownership and permissions.  
+      copy: src=index.nginx-debian.html html dest={{ doc_root }}/index.nginx-debian.html owner=www-data group=www-data mode=755
+
+    - name: Create the default Nginx virtual host file from template. 
+      template: src=vhost.tpl dest=/etc/nginx/sites-available/default owner=root group=root
+
+    - name: Symlink the default Nginx virtual host file. 
+      file: src=/etc/nginx/sites-available/default dest=/etc/nginx/sites-enabled/default state=link
+      notify: restart nginx 
+
+ handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
