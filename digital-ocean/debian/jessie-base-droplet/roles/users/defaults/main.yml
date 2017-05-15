@@ -1,0 +1,14 @@
+---
+provisioned_users: [ 
+            user_one: 
+                    name: 'scarlz',
+                    encrypted_password: 'test',
+                    public_key: 'id_rsa.pub'
+                    sudo: 'True'
+            user_two:
+                    name: 'scarlz_two',
+                    encrypted_password: 'test',
+                    public_key: 'id_rsa.pub'
+                    sudo: 'True'
+                   ]
+
