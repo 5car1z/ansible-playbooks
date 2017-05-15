@@ -2,7 +2,7 @@
 - name: provision debian 8 (jessie) droplets 
   hosts: all
   gather_facts: yes
-  sudo: yes
+  become: yes
   roles:
     - base
     - users
