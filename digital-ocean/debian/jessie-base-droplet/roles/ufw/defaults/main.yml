@@ -1,3 +1,2 @@
 ---
-ufw_allowed_hosts: ['127.0.0.1']
-ufw_open_ports: ['80', '443', '115']
+ufw_open_ports: ['80', '43']
