@@ -1,20 +1,14 @@
 ---
 - name: add provisioned user accounts defined in defaults config 
   user: name={{ item.name }} home=/home/{{ item.name }} shell=/bin/bash state=present password={{ item.encrypted_password }}
-  with_items: provisioned_users
-
-- name: add public keys to authorized keys for provisioned users
-  authorized_key: user={{ item[0].name }} key="{{ lookup('file', item[1]) }}" state=present
-  with_subelements:
-    - provisioned_users
-    - public_keys
+  with_items: "{{ provisioned_users }}"
 
 - name: add provisioned users to sudo group
   user: name={{ item.name }} groups=sudo append=yes
-  with_items: provisioned_users
+  with_items: "{{ provisioned_users }}"
   when: item.sudo
 
 - name: add provisioned users to admin group
   user: name={{ item.name }} groups=adm append=yes
-  with_items: provisioned_users
+  with_items: "{{ provisioned_users }}"
   when: item.adm
