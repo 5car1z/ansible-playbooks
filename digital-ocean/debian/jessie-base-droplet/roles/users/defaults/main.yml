@@ -1,4 +1,4 @@
 ---
 provisioned_users: 
-                 - {name: "scarlz", encrypted_password: "password", sudo: "true", adm: "true"}
+                 - {name: "scarlz", encrypted_password: "$1$@YMgS-5Y$2lH.vkVmawJ810djjkGp70", public_keys: ["/home/scarlz/.ssh/id_rsa.pub"], sudo: "true", adm: "true"}
 
