@@ -1,6 +1,6 @@
 ---
 - name: provision debian 8 (jessie) droplets 
-  hosts: testing
+  hosts: all
   gather_facts: yes
   become: yes
   roles:
