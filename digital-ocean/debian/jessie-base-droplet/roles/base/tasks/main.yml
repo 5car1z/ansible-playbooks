@@ -8,7 +8,6 @@
     - tmux
     - vim
     - unattended-upgrades
-    - ufw
     - cowsay
 
 - name: set the server message of the day explaining ansible was the configuration management tool
