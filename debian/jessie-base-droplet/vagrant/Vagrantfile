@@ -14,15 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  # Built using https://git.lumc.nl/m.vermaat.hg/vagrant-debian-jessie-64
-  # config.vm.box = "debian-jessie-64"
-  
   config.vm.box = "debian/jessie64"
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  # config.vm.box_url = "https://barmsijs.lumc.nl/HG/mvermaat/vagrant/debian-jessie-64.box"
-  config.vm.box_download_insecure = true
 
   # We don't need a shared folder.
   config.vm.synced_folder ".", "/vagrant", :disabled => true
@@ -48,8 +40,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.inventory_path = "inventory.yml"
     ansible.host_key_checking = false
   end
-
-  config.ssh.insert_key = false
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
