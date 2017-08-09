@@ -13,8 +13,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-
+ 
   config.vm.box = "debian/jessie64"
+  
+  config.vm.define = "ansible_server_provisioning" 
+ 
+  config.vm.provider :virtualbox do |vb|
+	 vb.name = "ansible_server_provisioning" 
+  end
 
   # We don't need a shared folder.
   config.vm.synced_folder ".", "/vagrant", :disabled => true
