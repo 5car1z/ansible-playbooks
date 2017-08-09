@@ -1,2 +1,2 @@
 [vagrant]
-default
+ansible_server_provisioning
