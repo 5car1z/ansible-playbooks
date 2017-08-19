@@ -1,0 +1,9 @@
+---
+- name: provision debian 8 (jessie) droplets 
+  hosts: all
+  gather_facts: yes
+  roles:
+    - base
+    - users
+    - ufw
+    - ntp
