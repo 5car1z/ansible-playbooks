@@ -1,31 +1,30 @@
-Local deployment with Vagrant
-=============================
+# Local Testing with Vagrant
 
-Tested with Vagrant 1.7.2.
+Tested with Vagrant 1.9.4
 
-This provides easy deployment on a local virtual machine using Vagrant. The
-configuration is based on a
-[Debian 8 (Jessie) box](https://git.lumc.nl/m.vermaat.hg/vagrant-debian-jessie-64).
+This provides easy test deployment to a local Vagrant virtual machine. 
+
+The configuration file uses a [Debian 8 (Jessie) box](https://app.vagrantup.com/debian/boxes/jessie64) for the VM test environment. 
 
 To get a machine up, run:
 
-    vagrant up
+```bash
+$ vagrant up
+```
 
 This will give you a virtual machine with a complete base server environment
 at IP address `192.168.111.223`.
 
-If you just want to re-play the Ansible playbook, run:
+If you want to re-play the Ansible playbook, run:
 
-    vagrant provision
+```bash
+$ vagrant provision
+```
 
 Running Ansible manually can be done like this:
 
-    ANSIBLE_HOST_KEY_CHECKING=False \
-      ansible-playbook -i inventory.yml ../playbook.yml
+```bash 
+$ ansible-playbook -i inventory.yml ../playbook.yml
+```
 
-(Unfortunately, there seems to be no easier way to disable host key checking
-for the Vagrant host only.)
-
-You can SSH into the machine with:
-
-    vagrant ssh
+See the Vagrant section for more details at: http://www.tricksofthetrades.net/2017/08/21/ansible-playbook-server-provisioning/
