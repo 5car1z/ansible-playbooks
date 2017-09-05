@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant", :disabled => true
 
   # Set VM hostname.
-  config.vm.hostname = "lumc-vagrant"
+  config.vm.hostname = "jessie-ansible-vagrant"
 
   # Accessing "localhost:8090" will access port 80 on the guest machine,
   # likewise for "localhost:8091" and 443.
